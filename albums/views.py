@@ -20,10 +20,11 @@ def create_album(request):
 
 # when the link is clicked, it will follow the path to confirm_delete. if user selects ye, then album_list = album_list.remove(album (something to do with pk?))
 def confirm_delete(request, pk):
-    album = Album.objects.get(pk=pk)
+    album = get_object_or_404(Album, pk=pk)
     if request.method == 'POST':
         album.delete()
-    return redirect('list-albums')
+        return redirect('list_albums')
+    return render(request, 'albums/confirm_delete.html', {'album':album})
 
 # how do i call the form on anexisting album from it's detail page?
 def edit_album(request, pk):
@@ -31,12 +32,11 @@ def edit_album(request, pk):
     if request.method == "POST":
         form = AlbumForm(request.POST, instance=album)
         if form.is_valid():
-            album = form.save(commit=False)
-            album.save()
+            album = form.save()
             return redirect('album_detail', pk=album.pk)
     else:
         form = AlbumForm(instance=album)
-    return render(request, 'albums/edit_album.html', {'album': album})
+    return render(request, 'albums/edit_album.html', {'form': form})
 
 def album_detail(request, pk):
     album = get_object_or_404(Album, pk=pk)

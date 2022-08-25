@@ -1,6 +1,8 @@
 .album-title {
     background-color: aqua;
 }
-.home-button{
-
+.confirm-button{
+    font-size: larger;
+    background-color: black;
+    color: white;
 }

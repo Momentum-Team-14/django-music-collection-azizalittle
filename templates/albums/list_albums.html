@@ -8,7 +8,7 @@
 <a class="create-album" href="{% url 'create_album' %}"> Create a new album</a>
 {% for album in albums %}
     <div class="album-box">
-    <a class="album-title" href="{% url 'album_detail' pk=album.pk %}"> {{ album }} </a>
+    <a class="album-title" href="{% url 'album_detail' pk=album.pk %}">{{ album }}</a>
     </div>
 {% endfor %}
 </div>

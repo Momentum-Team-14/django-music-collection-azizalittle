@@ -5,7 +5,7 @@
     <h1 class="">{{ album }}</h1>
     <h2 class="album-details">Release date:{{ album.release_date }}</h2>
     
-    <a class="edit-album" href="{% url 'edit_album.html' pk=album.pk %}">Edit</a>
-    <a class="delete-album" href="{% url 'confirm_delete.html' pk=album.pk %}">Delete</a>
+    <a class="edit-album" href="{% url 'edit_album' pk=album.pk %}">Edit</a> 
+    <a class="delete-album" href="{% url 'confirm_delete' pk=album.pk %}">Delete</a> 
     
 {% endblock %}
