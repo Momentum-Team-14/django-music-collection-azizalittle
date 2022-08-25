@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+<!-- we get everything we have in base.html for each page in app -->
+{% block title %}Album List{% endblock %}
+{% block content %}
+<!-- allows us to have different content in addition to base.html -->
+<h1>Albums</h1>
+<div class="container">
+<a class="create-album" href="{% url 'create_album' %}"> Create a new album</a>
+{% for album in albums %}
+    <div class="album-box">
+    <a class="album-title" href="{% url 'album_detail' pk=album.pk %}"> {{ album }} </a>
+    </div>
+{% endfor %}
+</div>
+{% endblock content %}
